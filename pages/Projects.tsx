@@ -1,0 +1,102 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { PROJECTS } from '../constants';
+import { ArrowRight, Filter } from 'lucide-react';
+
+const Projects: React.FC = () => {
+  const [filter, setFilter] = useState<string>('All');
+  
+  const categories = ['All', ...Array.from(new Set(PROJECTS.map(p => p.category)))];
+
+  const filteredProjects = filter === 'All' 
+    ? PROJECTS 
+    : PROJECTS.filter(p => p.category === filter);
+
+  return (
+    <div className="min-h-screen bg-slate-50 pb-20">
+      
+      {/* Dark Hero Section */}
+      <section className="bg-slate-900 pt-24 pb-20 px-4 relative overflow-hidden">
+         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500 via-slate-900 to-slate-900"></div>
+         <div className="container mx-auto text-center relative z-10">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Selected Work</h1>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light">
+                From founding startups to scaling enterprise tools. A collection of products I've built, managed, and scaled.
+            </p>
+         </div>
+      </section>
+
+      {/* Floating Filters */}
+      <div className="container mx-auto px-4 -mt-8 relative z-20 mb-16">
+        <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg border border-slate-200 p-2 max-w-fit mx-auto flex flex-wrap justify-center gap-1">
+            {categories.map(cat => (
+                <button
+                    key={cat}
+                    onClick={() => setFilter(cat)}
+                    className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        filter === cat 
+                        ? 'bg-slate-900 text-white shadow-md' 
+                        : 'text-slate-600 hover:bg-slate-100'
+                    }`}
+                >
+                    {cat}
+                </button>
+            ))}
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {filteredProjects.map((project) => (
+            <Link 
+                key={project.slug} 
+                to={`/projects/${project.slug}`}
+                className="flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-2xl hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 group"
+            >
+                <div className="h-64 bg-slate-200 overflow-hidden relative">
+                    <img 
+                        src={project.thumbnail} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90" />
+                    <div className="absolute bottom-4 left-4">
+                        <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-sm">
+                            {project.category}
+                        </span>
+                    </div>
+                </div>
+                <div className="p-8 flex flex-col flex-grow">
+                    <div className="mb-4">
+                        <h2 className="text-2xl font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{project.title}</h2>
+                        <p className="text-sm font-medium text-slate-500 uppercase tracking-wide">{project.role}</p>
+                    </div>
+                    <p className="text-slate-600 mb-6 line-clamp-3 leading-relaxed">
+                        {project.summary}
+                    </p>
+                    <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                         <div className="flex flex-wrap gap-2">
+                            {project.techStack.slice(0, 3).map((tech) => (
+                                <span key={tech} className="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">
+                                    {tech}
+                                </span>
+                            ))}
+                            {project.techStack.length > 3 && (
+                                <span className="text-xs font-medium text-slate-400 px-1 py-1">+ {project.techStack.length - 3}</span>
+                            )}
+                        </div>
+                        <span className="text-blue-600 flex items-center text-sm font-bold group-hover:translate-x-1 transition-transform">
+                            View <ArrowRight className="w-4 h-4 ml-1" />
+                        </span>
+                    </div>
+                </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Projects;
