@@ -9,7 +9,7 @@ const CustomCursor: React.FC = () => {
   // Use refs for position to avoid re-renders on every mouse move
   const mousePos = useRef({ x: 0, y: 0 });
   const outlinePos = useRef({ x: 0, y: 0 });
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
