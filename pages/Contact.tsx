@@ -1,8 +1,35 @@
-import React from 'react';
-import { Mail, Linkedin, Database, ArrowRight, Github, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Linkedin, Database, ArrowRight, Github, MessageCircle, Send } from 'lucide-react';
 import { SOCIAL_LINKS } from '../constants';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Construct the mailto link
+    const subject = encodeURIComponent(`Project Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Hi Fahim,\n\nI'm interested in working with you.\n\nHere are the details:\n${formData.message}\n\nBest,\n${formData.name}\n(${formData.email})`
+    );
+    
+    // Trigger email client
+    window.location.href = `mailto:notetofahim@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="min-h-screen bg-black pb-20">
       
@@ -104,11 +131,15 @@ const Contact: React.FC = () => {
             {/* Inquiry Form */}
             <div className="bg-zinc-900 p-8 md:p-10 rounded-3xl border border-zinc-800 shadow-2xl h-full flex flex-col">
                 <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
-                <form className="space-y-5 flex-grow" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-5 flex-grow" onSubmit={handleSubmit}>
                     <div>
                         <label className="block text-sm font-bold text-zinc-400 mb-2">Name</label>
                         <input 
                             type="text" 
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
                             className="w-full px-4 py-3 bg-black border border-zinc-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all text-white placeholder-zinc-600" 
                             placeholder="Your Name" 
                         />
@@ -117,6 +148,10 @@ const Contact: React.FC = () => {
                         <label className="block text-sm font-bold text-zinc-400 mb-2">Email</label>
                         <input 
                             type="email" 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
                             className="w-full px-4 py-3 bg-black border border-zinc-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all text-white placeholder-zinc-600" 
                             placeholder="your@email.com" 
                         />
@@ -124,16 +159,20 @@ const Contact: React.FC = () => {
                      <div>
                         <label className="block text-sm font-bold text-zinc-400 mb-2">Project Details</label>
                         <textarea 
+                            name="message"
                             rows={5} 
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
                             className="w-full px-4 py-3 bg-black border border-zinc-800 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all text-white placeholder-zinc-600 resize-none" 
                             placeholder="Tell me a bit about your project, timeline, and goals..."
                         ></textarea>
                     </div>
-                    <button className="w-full bg-orange-500 text-white font-bold py-4 rounded-xl hover:bg-orange-600 transition-all shadow-[0_0_20px_rgba(249,115,22,0.3)] transform active:scale-[0.98]">
-                        Send Message
+                    <button type="submit" className="w-full bg-orange-500 text-white font-bold py-4 rounded-xl hover:bg-orange-600 transition-all shadow-[0_0_20px_rgba(249,115,22,0.3)] transform active:scale-[0.98] flex items-center justify-center">
+                        Send Message <Send className="w-4 h-4 ml-2" />
                     </button>
                     <p className="text-xs text-center text-zinc-500 mt-4">
-                        * This form is a demo. For fastest response, please use Email or WhatsApp.
+                        * Clicking send will open your default email client with the message draft.
                     </p>
                 </form>
             </div>

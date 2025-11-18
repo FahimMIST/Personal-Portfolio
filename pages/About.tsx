@@ -1,16 +1,46 @@
+
 import React from 'react';
-import { 
-  Radar, 
-  RadarChart, 
-  PolarGrid, 
-  PolarAngleAxis, 
-  ResponsiveContainer,
-  PolarRadiusAxis
-} from 'recharts';
-import { SKILLS_RADAR_DATA } from '../constants';
-import { Briefcase, Code, Heart } from 'lucide-react';
+import { Briefcase, Heart, Code2, Terminal, Database, LayoutTemplate, Settings, Cpu, Users } from 'lucide-react';
 
 const About: React.FC = () => {
+  const SKILL_GROUPS = [
+    {
+      category: "Product Leadership",
+      icon: LayoutTemplate,
+      color: "text-orange-500",
+      bg: "bg-orange-500/10",
+      skills: ["Product Strategy", "Roadmapping", "PRD Writing", "User Research", "Agile & Scrum", "Stakeholder Management"]
+    },
+    {
+      category: "Engineering Core",
+      icon: Terminal,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      skills: ["Next.js / React", "Python (FastAPI)", "REST APIs", "PostgreSQL", "System Design", "Vercel / DigitalOcean"]
+    },
+    {
+      category: "Data & Analytics",
+      icon: Database,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      skills: ["SQL Querying", "Python (Pandas)", "Data Visualization", "Looker Studio", "Tableau / PowerBI", "Product Analytics", "A/B Testing"]
+    },
+    {
+      category: "HR & Team Ops",
+      icon: Users,
+      color: "text-pink-500",
+      bg: "bg-pink-500/10",
+      skills: ["Technical Hiring", "Pipeline Design", "Interviewing", "Candidate Scorecards", "Team Building", "Culture Fit"]
+    },
+    {
+      category: "Tools & Ops",
+      icon: Settings,
+      color: "text-purple-500",
+      bg: "bg-purple-500/10",
+      skills: ["Figma", "Jira / Linear", "Visio / Miro", "Git / GitHub", "Docker", "Notion"]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white">
       
@@ -106,36 +136,43 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Skills Chart */}
+          {/* Right Column: Skills Ecosystem (Replaced Radar Chart) */}
           <div className="lg:sticky lg:top-24">
-            <div className="bg-zinc-900 rounded-3xl p-8 border border-white/10 relative overflow-hidden">
-                 <div className="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl"></div>
-                <div className="flex items-center justify-center mb-6 relative z-10">
-                    <Code className="w-5 h-5 text-zinc-500 mr-2" />
-                    <h3 className="text-xl font-bold text-white">Skill Distribution</h3>
+            <div className="bg-zinc-900/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10 relative overflow-hidden">
+                 {/* Decorative Blob */}
+                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
+                 
+                <div className="flex items-center mb-8 relative z-10">
+                    <Cpu className="w-6 h-6 text-zinc-400 mr-3" />
+                    <h3 className="text-2xl font-bold text-white">Skills Ecosystem</h3>
                 </div>
                 
-                <div className="h-[320px] w-full -ml-4 md:ml-0 relative z-10">
-                <ResponsiveContainer width="100%" height="100%">
-                    <RadarChart cx="50%" cy="50%" outerRadius="75%" data={SKILLS_RADAR_DATA}>
-                    <PolarGrid stroke="#3f3f46" />
-                    <PolarAngleAxis dataKey="subject" tick={{ fill: '#a1a1aa', fontSize: 12, fontWeight: 600 }} />
-                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                    <Radar
-                        name="Fahim"
-                        dataKey="A"
-                        stroke="#f97316"
-                        strokeWidth={3}
-                        fill="#f97316"
-                        fillOpacity={0.3}
-                    />
-                    </RadarChart>
-                </ResponsiveContainer>
+                <div className="space-y-6 relative z-10">
+                    {SKILL_GROUPS.map((group, idx) => {
+                        const Icon = group.icon;
+                        return (
+                            <div key={idx} className="bg-black/40 rounded-xl p-5 border border-zinc-800 hover:border-zinc-700 transition-colors">
+                                <div className="flex items-center mb-4">
+                                    <div className={`w-8 h-8 rounded-lg ${group.bg} flex items-center justify-center ${group.color} mr-3`}>
+                                        <Icon className="w-4 h-4" />
+                                    </div>
+                                    <h4 className="font-bold text-white text-sm uppercase tracking-wide">{group.category}</h4>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {group.skills.map((skill, sIdx) => (
+                                        <span key={sIdx} className="px-3 py-1.5 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-md border border-zinc-700/50 hover:bg-zinc-700 hover:text-white transition-colors">
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
                 
-                <div className="mt-6 pt-6 border-t border-white/5 text-center relative z-10">
+                <div className="mt-8 pt-6 border-t border-white/5 text-center relative z-10">
                     <p className="text-sm text-zinc-500 italic">
-                        "A rare mix of Product Strategy, Engineering capability, and Hiring expertise."
+                        "A hybrid skillset built for shipping."
                     </p>
                 </div>
             </div>

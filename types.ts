@@ -1,3 +1,4 @@
+
 import { LucideIcon } from 'lucide-react';
 
 export interface Project {
@@ -66,6 +67,14 @@ export interface CertificationItem {
   issuer: string;
   date?: string;
   link?: string;
+}
+
+export interface Testimonial {
+  name: string;
+  role: string;
+  relation: string;
+  content: string;
+  image?: string;
 }
 
 export interface ChartData {

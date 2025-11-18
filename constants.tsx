@@ -12,7 +12,7 @@ import {
   Zap,
   Terminal
 } from 'lucide-react';
-import { Project, Service, ExperienceItem, ChartData, Skill, EducationItem, CertificationItem } from './types';
+import { Project, Service, ExperienceItem, ChartData, Skill, EducationItem, CertificationItem, Testimonial } from './types';
 
 // Direct link to the user's photo from Google Drive
 export const USER_IMAGE_URL = "https://drive.google.com/uc?export=view&id=1DMMLMkota-I_9CLmToVQFtLq3cr4vW7w";
@@ -70,27 +70,29 @@ export const SERVICES: Service[] = [
   {
     slug: 'rapid-mvp-vibe-coding',
     title: 'Rapid MVP & "Vibe Coding"',
-    description: 'Need a stunning portfolio, static site, or landing page fast? I combine Figma design intuition with React & Tailwind speed to ship beautiful, non-transactional apps in record time.',
-    fullDescription: 'In the modern web, "Vibe Coding" is about speed, aesthetics, and flow. I leverage my full-stack skills to rapidly prototype and build high-quality static sites, portfolios, and non-transactional web apps. Whether you have a Figma file ready or just a napkin sketch, I turn ideas into deployed, beautiful URLs at lightning speed using modern AI-assisted workflows and solid engineering fundamentals.',
+    description: 'Turn your vision into a working product fast. I combine "Vibe Coding" speed with PM rigor—building low-cost MVPs, operational flowcharts (Visio), and testing product-market fit.',
+    fullDescription: 'In the early stages, speed and clarity are everything. "Vibe Coding" isn\'t just about aesthetics—it\'s about rapidly manifesting a vision into reality to test product-market fit without the enterprise bloat.\n\nI help founders define the entire project lifecycle, create detailed operational flowcharts using Visio to map complex user journeys, and architect low-cost MVPs. My goal is to get your product in front of users quickly, analyze their behavior, and iterate based on real data rather than assumptions.',
     icon: Palette,
     features: [
-      'High-Fidelity Figma to React Conversion',
-      'Responsive & Accessible UI/UX',
-      'Smooth Animations (Framer Motion)',
-      'SEO Optimization & Meta Tags'
+      'Project Lifecycle & Vision Building',
+      'Operational Flowcharts (Visio)',
+      'Low-Cost MVP Development',
+      'Product-Market Fit Testing',
+      'User Behavior Analysis & Heatmaps',
+      'High-Fidelity Design & Implementation'
     ],
     process: [
-      { title: 'Vibe Check', description: 'Understanding your brand aesthetic and core message.' },
-      { title: 'Prototype', description: 'Quick wireframing in Figma to align on visual direction.' },
-      { title: 'Code', description: 'Rapid development using React, Tailwind, and modern tooling.' },
-      { title: 'Ship', description: 'Instant deployment to Vercel with custom domain setup.' }
+      { title: 'Vision', description: 'Defining the core value proposition and building out the long-term project vision.' },
+      { title: 'Flow', description: 'Creating detailed operational flowcharts (Visio) to map user journeys and logic.' },
+      { title: 'Build', description: 'Rapidly coding a low-cost MVP focused on core features to validate the concept.' },
+      { title: 'Validate', description: 'Launching to users, analyzing behavior, and measuring product-market fit.' }
     ],
     benefits: [
-      'Get online in days, not months',
-      'Pixel-perfect implementation',
-      'Mobile-first and performance optimized'
+      'Validate ideas without expensive engineering teams',
+      'Clear operational roadmaps before a single line of code',
+      'Data-driven iteration based on real user behavior'
     ],
-    techStack: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel', 'Figma']
+    techStack: ['React', 'Visio', 'Figma', 'Tailwind CSS', 'Vercel', 'Mixpanel']
   },
   {
     slug: 'full-stack-engineering',
@@ -210,7 +212,7 @@ export const PROJECTS: Project[] = [
       'Foundation built for subscription & monetization'
     ],
     techStack: ['Next.js', 'FastAPI', 'PostgreSQL', 'Flutter', 'DigitalOcean'],
-    thumbnail: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop'
   },
   {
     slug: 'dokane-pos',
@@ -233,7 +235,7 @@ export const PROJECTS: Project[] = [
       'Reduced production bugs via rigorous QA'
     ],
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Manual Testing'],
-    thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop'
   },
   {
     slug: 'reformed-tech-hiring',
@@ -423,3 +425,54 @@ export const SOCIAL_LINKS = {
   email: "mailto:notetofahim@gmail.com",
   whatsapp: "https://wa.me/8801886628121"
 };
+
+export const TESTIMONIALS: Testimonial[] = [
+    {
+        name: "Dane Bratz",
+        role: "Ex-Technical Founder",
+        relation: "Worked with Fahim but were at different companies",
+        content: "Fahim is diligent, thoughtful, eager to learn and improve, and quickly picks things up. He's an absolute joy to work with and to be around. He brings a mature groundedness to any team that he is a part of. He is an excellent communicator and works hard to understand, break down, and encode projects or problems at hand. Overall, he is just a really good and gracious person."
+    },
+    {
+        name: "Mahammad Jan E Alam",
+        role: "Digital Growth Manager",
+        relation: "Fahim's Mentor",
+        content: "Teaming up with Fahim has been immensely rewarding. His outstanding leadership, organizational skills, and clear communication have had a notable impact on our web and software development projects. Fahim skillfully handles complex projects, ensuring they are completed on time and within budget. I confidently recommend Fahim to anyone seeking a high-caliber project manager."
+    },
+    {
+        name: "Md. Abdullah Al Mamun",
+        role: "Technical QA Leader",
+        relation: "Worked with Fahim on the same team",
+        content: "I got a chance to work with Fahim bhai in a POS application project. As a project manager he is really awesome and always brings a unique point of view in terms of project management. He is very passionate and honest about his work, always keeps motivating the team members to grow. It was really awesome working with Fahim."
+    },
+    {
+        name: "SM Ashik Uzzaman",
+        role: "Software Engineer (Next.js)",
+        relation: "Worked with Fahim on the same team",
+        content: "Fahim is a strategic thinker with a remarkable ability to streamline complex processes and drive efficiency. His approach to project management is both innovative and methodical. Fahim's exceptional attention to detail and problem-solving skills consistently deliver outstanding results. He knows how to inspire and motivate teams to achieve common goals."
+    },
+    {
+        name: "Himadri Sen Gupta, Ph.D.",
+        role: "Assistant Professor @ Colorado State",
+        relation: "Fahim's Teacher",
+        content: "I am glad to recommend Fahim, one of the best students of my class. I found him very energetic, he always tries to learn new things which always impressed me a lot. Fahim has a very deep insight in the field of data science and in some programming languages. As far I know he is very passionate in this field."
+    },
+    {
+        name: "Reza Tariq Al Huda",
+        role: "Operations Management Intern",
+        relation: "Studied together",
+        content: "Fahim works hard besides the regular undergrad studies. He has excellent time management skills that aids him in his venture."
+    },
+    {
+        name: "Ashraful Islam",
+        role: "CVM / CLM and Data Science",
+        relation: "Managed Fahim directly",
+        content: "Fahim is hardworking and full of energy and ideas. His curiosity has helped me in my projects when I worked with Fahim. He performed all the tasks with agility and learned complex calculations and analytics pretty fast."
+    },
+    {
+        name: "Rojin Ammar",
+        role: "Product @ Electica",
+        relation: "Managed Fahim directly",
+        content: "I have seen few people as hungry to learn and contribute as Fahim. An amazing team player and always ready to help others. He will put in the required effort and some more. A welcome addition to any team."
+    }
+];

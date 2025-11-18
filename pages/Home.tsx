@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Terminal, Users, Zap, LayoutTemplate, Rocket, Award, CheckCircle, ExternalLink, Code, LineChart } from 'lucide-react';
-import { PROJECTS, SERVICES, USER_IMAGE_URL } from '../constants';
+import { ArrowRight, ChevronRight, Terminal, Users, Zap, LayoutTemplate, Rocket, Award, CheckCircle, ExternalLink, Code, LineChart, Quote } from 'lucide-react';
+import { PROJECTS, SERVICES, USER_IMAGE_URL, TESTIMONIALS } from '../constants';
 
 const Home: React.FC = () => {
   return (
@@ -251,7 +252,35 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. VIBE CODING TEASER */}
+      {/* 5. TESTIMONIALS - Added Section */}
+      <section className="py-24 bg-black relative border-t border-white/5">
+         <div className="container mx-auto px-6">
+             <div className="mb-16 text-center">
+                <p className="text-orange-500 font-bold uppercase tracking-widest mb-2">Testimonials</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-white">Trusted by <span className="text-zinc-700">Teams</span></h2>
+             </div>
+             
+             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                 {TESTIMONIALS.map((t, i) => (
+                     <div key={i} className="break-inside-avoid bg-zinc-900 border border-zinc-800 p-8 rounded-2xl hover:border-orange-500/30 transition-all duration-300 group">
+                         <Quote className="w-8 h-8 text-zinc-700 mb-4 group-hover:text-orange-500/50 transition-colors" />
+                         <p className="text-zinc-300 mb-6 leading-relaxed">"{t.content}"</p>
+                         <div className="flex items-center">
+                             <div className="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+                                 {t.name.charAt(0)}
+                             </div>
+                             <div>
+                                 <h4 className="text-white font-bold text-sm">{t.name}</h4>
+                                 <p className="text-orange-500 text-xs">{t.role}</p>
+                             </div>
+                         </div>
+                     </div>
+                 ))}
+             </div>
+         </div>
+      </section>
+
+      {/* 6. VIBE CODING TEASER */}
       <section className="py-24 bg-black relative overflow-hidden">
          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-500/10 via-black to-black"></div>
          <div className="container mx-auto px-6 relative z-10">
@@ -275,7 +304,7 @@ const Home: React.FC = () => {
          </div>
       </section>
 
-      {/* 6. CTA */}
+      {/* 7. CTA */}
       <section className="py-24 bg-black text-center">
          <div className="container mx-auto px-6">
              <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 uppercase mb-8 tracking-tighter hover:text-zinc-800 transition-colors cursor-default">
