@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,6 +26,13 @@
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #52525b; /* Zinc-600 */
+      }
+
+      /* Hide default cursor on desktop to allow custom cursor */
+      @media (min-width: 768px) {
+        body, a, button, input, textarea, [role="button"] {
+          cursor: none !important;
+        }
       }
     </style>
   <script type="importmap">

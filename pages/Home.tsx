@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Terminal, Users, Zap, LayoutTemplate, Rocket, Award, CheckCircle, ExternalLink, Code, LineChart, Quote } from 'lucide-react';
-import { PROJECTS, SERVICES, USER_IMAGE_URL, TESTIMONIALS } from '../constants';
+import { ArrowRight, ChevronRight, Terminal, Users, Zap, LayoutTemplate, Rocket, Award, CheckCircle, ExternalLink, Code, LineChart, Quote, Mail, MessageCircle } from 'lucide-react';
+import { PROJECTS, SERVICES, USER_IMAGE_URL, TESTIMONIALS, SOCIAL_LINKS } from '../constants';
 
 const Home: React.FC = () => {
   return (
@@ -309,20 +309,46 @@ const Home: React.FC = () => {
          </div>
       </section>
 
-      {/* 7. CTA */}
-      <section className="py-24 bg-black text-center">
-         <div className="container mx-auto px-6">
-             <h2 className="text-5xl md:text-7xl font-bold text-zinc-900 uppercase mb-8 tracking-tighter hover:text-zinc-800 transition-colors cursor-default">
-                Let's Build <br /> Something Great
-             </h2>
-             <div className="flex flex-col md:flex-row justify-center gap-6">
-                 <div className="text-left">
-                     <p className="text-zinc-500 text-sm font-bold uppercase tracking-wider mb-1">Email Me</p>
-                     <a href="mailto:notetofahim@gmail.com" className="text-2xl md:text-3xl font-bold text-white hover:text-orange-500 transition-colors">
-                         notetofahim@gmail.com
-                     </a>
-                 </div>
-             </div>
+      {/* 7. CTA - REDESIGNED */}
+      <section className="py-32 bg-black relative overflow-hidden text-center">
+         {/* Background Glow */}
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+         <div className="container mx-auto px-6 relative z-10">
+            
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-bold uppercase tracking-wider mb-8">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                Open for opportunities
+            </div>
+
+            <h2 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-tight">
+               LET'S BUILD <br /> 
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">SOMETHING GREAT</span>
+            </h2>
+            
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+                From product strategy to full-stack execution. I'm ready to help you ship your next big idea.
+            </p>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a 
+                    href={`mailto:${SOCIAL_LINKS.email.replace('mailto:', '')}`} 
+                    className="group relative px-10 py-5 bg-white text-black text-lg font-bold rounded-full transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden"
+                >
+                    <span className="relative z-10 flex items-center">
+                        Start a Conversation <Mail className="ml-3 w-5 h-5 group-hover:scale-110 transition-transform" />
+                    </span>
+                </a>
+                
+                <a 
+                    href={SOCIAL_LINKS.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-10 py-5 bg-zinc-900 text-white text-lg font-bold rounded-full border border-zinc-800 hover:bg-zinc-800 hover:border-green-500/50 transition-all"
+                >
+                    WhatsApp Me <MessageCircle className="ml-3 w-5 h-5 text-green-500" />
+                </a>
+            </div>
          </div>
       </section>
 
