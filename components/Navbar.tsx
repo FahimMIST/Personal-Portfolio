@@ -10,35 +10,41 @@ const Navbar: React.FC = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/80 border-b border-slate-800 text-white">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <nav className="fixed top-0 z-50 w-full bg-black/50 backdrop-blur-md border-b border-white/5 text-white transition-all duration-300">
+      <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 font-bold text-xl tracking-tight hover:text-blue-400 transition-colors">
-          <Terminal className="w-6 h-6 text-blue-500" />
-          <span>Fahim Montasir</span>
+        <Link to="/" className="flex items-center space-x-2 font-bold text-2xl tracking-tighter hover:text-orange-500 transition-colors group">
+          <span className="bg-orange-500 text-white p-1 rounded-lg group-hover:rotate-3 transition-transform">
+              <Terminal className="w-5 h-5" />
+          </span>
+          <span>Fahim<span className="text-orange-500">.</span></span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {NAV_LINKS.map((link) => {
             const isActive = location.pathname === link.path;
             return (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-blue-400 ${
-                  isActive ? 'text-blue-400' : 'text-slate-300'
+                className={`text-sm font-medium transition-all duration-200 hover:text-orange-500 relative group ${
+                  isActive ? 'text-orange-500' : 'text-slate-300'
                 }`}
               >
                 {link.label}
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
               </Link>
             );
           })}
+          <Link to="/contact" className="bg-white text-black px-5 py-2.5 rounded-full text-sm font-bold hover:bg-orange-500 hover:text-white transition-all shadow-lg hover:shadow-orange-500/30">
+              Hire Me
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-md hover:bg-slate-800 text-slate-300"
+          className="md:hidden p-2 rounded-md hover:bg-white/10 text-slate-300"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -48,17 +54,17 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800">
-          <div className="px-4 pt-2 pb-4 space-y-2">
+        <div className="md:hidden bg-zinc-950 border-b border-white/10 absolute w-full">
+          <div className="px-4 pt-2 pb-6 space-y-2">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-4 py-3 rounded-lg text-base font-medium ${
                   location.pathname === link.path
-                    ? 'bg-slate-800 text-blue-400'
-                    : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                    ? 'bg-orange-500/10 text-orange-500'
+                    : 'text-slate-300 hover:bg-white/5 hover:text-white'
                 }`}
               >
                 {link.label}

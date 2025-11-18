@@ -4,19 +4,19 @@ import { SOCIAL_LINKS } from '../constants';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+    <footer className="bg-zinc-950 text-zinc-400 py-12 border-t border-white/5">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           
           {/* Brand & Newsletter */}
           <div className="w-full md:w-auto flex flex-col items-center md:items-start text-center md:text-left">
             <h3 className="text-lg font-bold text-white mb-2">Fahim Montasir</h3>
-            <p className="text-sm text-slate-500 max-w-xs mb-6">
+            <p className="text-sm text-zinc-500 max-w-xs mb-6">
               Technical Product Manager & Founder building products and teams.
             </p>
             
              <div className="flex flex-col items-center md:items-start gap-3">
-                <p className="text-xs font-medium text-slate-400">
+                <p className="text-xs font-medium text-zinc-500">
                    Read my "Invest in Bangladesh" Newsletter:
                 </p>
                 <a 
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-sm text-slate-600">
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-600">
           <p>&copy; {new Date().getFullYear()} Fahim Montasir. All rights reserved.</p>
           <p className="mt-2 md:mt-0">Designed with React & Tailwind</p>
         </div>

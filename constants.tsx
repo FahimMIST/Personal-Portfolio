@@ -1,3 +1,4 @@
+
 import { 
   Code2, 
   Users, 
@@ -12,6 +13,15 @@ import {
   Terminal
 } from 'lucide-react';
 import { Project, Service, ExperienceItem, ChartData, Skill, EducationItem, CertificationItem } from './types';
+
+// Direct link to the user's photo from Google Drive
+export const USER_IMAGE_URL = "https://drive.google.com/uc?export=view&id=1DMMLMkota-I_9CLmToVQFtLq3cr4vW7w";
+
+export const THEME = {
+  accent: "orange-500",
+  accentHover: "orange-600",
+  darkBg: "zinc-950",
+};
 
 export const NAV_LINKS = [
   { label: 'Home', path: '/' },
@@ -200,7 +210,7 @@ export const PROJECTS: Project[] = [
       'Foundation built for subscription & monetization'
     ],
     techStack: ['Next.js', 'FastAPI', 'PostgreSQL', 'Flutter', 'DigitalOcean'],
-    thumbnail: 'https://picsum.photos/seed/academizz/800/600'
+    thumbnail: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop'
   },
   {
     slug: 'dokane-pos',
@@ -223,7 +233,7 @@ export const PROJECTS: Project[] = [
       'Reduced production bugs via rigorous QA'
     ],
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Manual Testing'],
-    thumbnail: 'https://picsum.photos/seed/dokane/800/600'
+    thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop'
   },
   {
     slug: 'reformed-tech-hiring',
@@ -246,7 +256,7 @@ export const PROJECTS: Project[] = [
       'Reduced time-to-hire by ~60%'
     ],
     techStack: ['Recruiting', 'Technical Interviewing', 'Team Building'],
-    thumbnail: 'https://picsum.photos/seed/reformed/800/600'
+    thumbnail: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop'
   },
   {
     slug: 'farming-system',
@@ -269,7 +279,7 @@ export const PROJECTS: Project[] = [
       'Strong documentation culture established'
     ],
     techStack: ['UI/UX Design', 'Product Management', 'QA', 'Enterprise Software'],
-    thumbnail: 'https://picsum.photos/seed/farming/800/600'
+    thumbnail: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800&auto=format&fit=crop'
   }
 ];
 
