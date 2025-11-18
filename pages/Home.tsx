@@ -81,8 +81,13 @@ const Home: React.FC = () => {
                              <img 
                                 src={USER_IMAGE_URL} 
                                 alt="Fahim Montasir" 
+                                referrerPolicy="no-referrer"
                                 className="w-full h-auto object-cover drop-shadow-2xl"
                                 style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.src = "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop"; // Fallback professional image
+                                }}
                              />
                         </div>
 

@@ -14,8 +14,8 @@ import {
 } from 'lucide-react';
 import { Project, Service, ExperienceItem, ChartData, Skill, EducationItem, CertificationItem, Testimonial } from './types';
 
-// Direct link to the user's photo from Google Drive
-export const USER_IMAGE_URL = "https://drive.google.com/uc?export=view&id=1DMMLMkota-I_9CLmToVQFtLq3cr4vW7w";
+// Using Google Drive Thumbnail endpoint which is often more reliable for embedding
+export const USER_IMAGE_URL = "https://drive.google.com/thumbnail?id=12TSvdSyhPhCHovFODqfuRYvPqeMt1ALP&sz=w1000";
 
 export const THEME = {
   accent: "orange-500",
@@ -212,7 +212,7 @@ export const PROJECTS: Project[] = [
       'Foundation built for subscription & monetization'
     ],
     techStack: ['Next.js', 'FastAPI', 'PostgreSQL', 'Flutter', 'DigitalOcean'],
-    thumbnail: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1000&auto=format&fit=crop'
   },
   {
     slug: 'dokane-pos',
@@ -235,7 +235,7 @@ export const PROJECTS: Project[] = [
       'Reduced production bugs via rigorous QA'
     ],
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Manual Testing'],
-    thumbnail: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop'
+    thumbnail: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop'
   },
   {
     slug: 'reformed-tech-hiring',
